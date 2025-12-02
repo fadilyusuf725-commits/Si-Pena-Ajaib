@@ -1,0 +1,26 @@
+{
+  "name": "si-pena-ajaib",
+  "version": "1.0.0",
+  "description": "A project that serves as the main entry point for the application with core logic and functionality.",
+  "main": "src/index.ts",
+  "scripts": {
+    "build": "tsc",
+    "start": "node dist/index.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/username/si-pena-ajaib.git"
+  },
+  "keywords": [
+    "typescript",
+    "nodejs",
+    "project"
+  ],
+  "author": "Your Name",
+  "license": "ISC",
+  "dependencies": {},
+  "devDependencies": {
+    "typescript": "^4.0.0"
+  }
+}

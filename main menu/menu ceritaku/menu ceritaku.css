@@ -1,0 +1,561 @@
+@import url("https://fonts.googleapis.com/css2?family=Nunito:wght@400;700;800&display=swap");
+
+:root {
+  --bg: #bde6ff;
+  --accent: #164e86;
+  --soft: #d6f1ff;
+  --yellow: #ffe168;
+  --card: #ffffff;
+  --hint: #66C3FF;
+  --clear: #FFF7D6;
+  --clear-border: #E0B84A;
+}
+
+* {
+  box-sizing: border-box;
+}
+html, body {
+  height: 100%;
+  margin: 0;
+  font-family: "Nunito", sans-serif;
+  background: var(--bg);
+  color: var(--accent);
+  -webkit-font-smoothing: antialiased;
+  overflow-x: hidden;
+}
+
+/* HEADER */
+header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 22px 28px;
+}
+
+.judul {
+  font-size: 34px;
+  font-weight: 800;
+  margin: 0;
+  text-align: center;
+  flex: 1;
+}
+
+/* Home tombol kotak putih */
+.home-btn {
+  background: #fff;
+  border: 3px solid var(--accent);
+  border-radius: 18px;
+  padding: 8px 14px;
+  font-size: 26px;
+  cursor: pointer;
+}
+
+/* Mulai Cerita */
+.mulai-btn {
+  background: var(--yellow);
+  border: 3px solid var(--accent);
+  border-radius: 22px;
+  padding: 8px 18px;
+  font-weight: 800;
+  cursor: pointer;
+  font-size: 14px;
+}
+
+.container {
+  padding: 18px 20px 120px;
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+.controls-row {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 12px;
+  font-weight: 700;
+}
+select {
+  padding: 8px 12px;
+  border-radius: 10px;
+  border: 2px solid #dbeefc;
+  background: #fff;
+  font-weight: 700;
+  font-size: 14px;
+  cursor: pointer;
+}
+
+.scene-area {
+  display: flex;
+  justify-content: center;
+}
+.scene-card {
+  width: 900px;
+  background: var(--card);
+  border-radius: 16px;
+  padding: 16px;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.08);
+  border: 3px solid #9fc5ff;
+}
+
+.scene-image-wrap {
+  width: 100%;
+  height: 360px;
+  border-radius: 12px;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #e9f8ff;
+  position: relative;
+  margin-bottom: 12px;
+}
+
+.scene-image-wrap img {
+  max-width: 100%;
+  max-height: 100%;
+  object-fit: contain;
+}
+
+.badge {
+  position: absolute;
+  left: 12px;
+  top: 12px;
+  background: #fff;
+  border: 3px solid var(--accent);
+  padding: 6px 10px;
+  border-radius: 12px;
+  font-weight: 800;
+}
+.drop-area {
+  min-height: 70px;
+  border: 3px dashed #dbeefc;
+  border-radius: 12px;
+  margin: 14px 0;
+  padding: 12px;
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+  align-items: center;
+  background: linear-gradient(180deg, #ffffff, #f7feff);
+}
+
+.slot {
+  min-width: 40px;
+  min-height: 40px;
+  border-radius: 8px;
+  border: 2px dashed #cfe9ff;
+  background: #f8feff;
+  padding: 6px 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 800;
+}
+
+.slot.filled {
+  border-style: solid;
+  background: #e7f7ff;
+}
+
+.wordbank {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  padding: 8px 0;
+}
+
+.word {
+  background: #fff;
+  border: 3px solid var(--accent);
+  padding: 8px 12px;
+  border-radius: 12px;
+  cursor: grab;
+  font-weight: 800;
+}
+
+.word.dragging {
+  opacity: 0.5;
+}
+
+.scene-actions {
+  display: flex;
+  gap: 10px;
+  justify-content: center;
+  margin-top: 12px;
+  flex-wrap: wrap;
+}
+
+.hint-btn {
+  background: var(--hint);
+  border: 3px solid #1f7fbf;
+  padding: 10px 14px;
+  border-radius: 14px;
+  font-size: 14px;
+  font-weight: 800;
+  color: #01324a;
+  cursor: pointer;
+  transition: 0.1s;
+}
+
+.hint-btn:hover {
+  transform: translateY(-3px);
+}
+
+.clear-btn {
+  background: var(--clear);
+  border: 3px solid var(--clear-border);
+  padding: 10px 14px;
+  border-radius: 14px;
+  font-size: 14px;
+  font-weight: 800;
+  color: #3b2c00;
+  cursor: pointer;
+  box-shadow: 0 8px 12px rgba(224, 184, 74, 0.12);
+  transition: 0.1s;
+}
+
+.clear-btn:hover {
+  transform: translateY(-3px);
+}
+
+.primary {
+  background: var(--yellow);
+  border: 3px solid var(--accent);
+  padding: 10px 16px;
+  border-radius: 12px;
+  font-weight: 800;
+  cursor: pointer;
+  font-size: 14px;
+  transition: 0.1s;
+}
+
+.primary:hover {
+  transform: translateY(-3px);
+}
+
+.feedback {
+  min-height: 36px;
+  text-align: center;
+  margin-top: 8px;
+  font-weight: 800;
+  color: #0d4670;
+}
+.footer {
+  position: fixed;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  width: 100%;
+  height: 72px;
+  background: #D6F1FF;
+  border-top: 4px solid var(--accent);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 50px;
+  z-index: 50;
+  padding-bottom: 6px;
+}
+
+footer {
+  position: fixed;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  width: 100%;
+  height: 72px;
+  background: #D6F1FF;
+  border-top: 4px solid var(--accent);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 50px;
+  z-index: 50;
+  padding-bottom: 6px;
+}
+
+.footer-icon {
+  font-size: 28px;
+  cursor: pointer;
+}
+.hidden {
+  display: none;
+}
+
+.bintang {
+  position: fixed;
+  top: -20px;
+  font-size: 24px;
+  animation: jatuh 2s linear forwards;
+  pointer-events: none;
+}
+
+@keyframes jatuh {
+  to {
+    transform: translateY(115vh) rotate(360deg);
+    opacity: 0;
+  }
+}
+
+/* ==================== RESPONSIVE TABLET (≤ 768px) ==================== */
+@media (max-width: 768px) {
+  header {
+    padding: 16px 20px;
+    gap: 12px;
+  }
+
+  .judul {
+    font-size: 28px;
+  }
+
+  .home-btn,
+  .mulai-btn {
+    font-size: 22px;
+    padding: 8px 12px;
+  }
+
+  .container {
+    padding: 14px 16px 120px;
+  }
+
+  .controls-row {
+    gap: 10px;
+  }
+
+  .scene-card {
+    width: 100%;
+    padding: 14px;
+  }
+
+  .scene-image-wrap {
+    height: 300px;
+  }
+
+  .scene-actions {
+    gap: 8px;
+  }
+
+  .hint-btn,
+  .clear-btn,
+  .primary {
+    padding: 8px 12px;
+    font-size: 13px;
+  }
+
+  footer {
+    height: 65px;
+    gap: 40px;
+  }
+
+  .footer-icon {
+    font-size: 26px;
+  }
+}
+
+/* ==================== RESPONSIVE MOBILE (≤ 640px) ==================== */
+@media (max-width: 640px) {
+  header {
+    padding: 12px 14px;
+    gap: 10px;
+  }
+
+  .judul {
+    font-size: 24px;
+  }
+
+  .home-btn,
+  .mulai-btn {
+    font-size: 18px;
+    padding: 6px 10px;
+  }
+
+  .container {
+    padding: 12px 12px 110px;
+  }
+
+  .controls-row {
+    gap: 8px;
+    font-size: 13px;
+  }
+
+  select {
+    padding: 6px 10px;
+    font-size: 13px;
+  }
+
+  .scene-card {
+    width: 100%;
+    padding: 12px;
+    border-radius: 14px;
+  }
+
+  .scene-image-wrap {
+    height: 220px;
+    margin-bottom: 10px;
+  }
+
+  .badge {
+    padding: 5px 8px;
+    font-size: 12px;
+  }
+
+  .drop-area {
+    min-height: 60px;
+    border-radius: 10px;
+    padding: 10px;
+    gap: 6px;
+    margin: 10px 0;
+  }
+
+  .slot {
+    min-width: 35px;
+    min-height: 35px;
+    font-size: 12px;
+  }
+
+  .wordbank {
+    gap: 6px;
+    padding: 6px 0;
+  }
+
+  .word {
+    padding: 6px 10px;
+    font-size: 12px;
+    border-radius: 10px;
+  }
+
+  .scene-actions {
+    flex-direction: column;
+    gap: 6px;
+    margin-top: 10px;
+  }
+
+  .hint-btn,
+  .clear-btn,
+  .primary {
+    width: 100%;
+    padding: 8px 10px;
+    font-size: 13px;
+  }
+
+  .feedback {
+    font-size: 13px;
+  }
+
+  footer {
+    height: 60px;
+    gap: 30px;
+  }
+
+  .footer-icon {
+    font-size: 24px;
+  }
+
+  .bintang {
+    font-size: 18px;
+  }
+}
+
+/* ==================== RESPONSIVE KECIL (≤ 480px) ==================== */
+@media (max-width: 480px) {
+  header {
+    padding: 10px 10px;
+    gap: 8px;
+    flex-direction: column;
+  }
+
+  .judul {
+    font-size: 20px;
+  }
+
+  .home-btn,
+  .mulai-btn {
+    font-size: 16px;
+    padding: 5px 8px;
+  }
+
+  .container {
+    padding: 10px 10px 100px;
+  }
+
+  .controls-row {
+    flex-direction: column;
+    gap: 6px;
+    font-size: 12px;
+  }
+
+  select {
+    width: 100%;
+    padding: 5px 8px;
+    font-size: 12px;
+  }
+
+  .scene-card {
+    padding: 10px;
+    border-radius: 12px;
+  }
+
+  .scene-image-wrap {
+    height: 180px;
+    margin-bottom: 8px;
+  }
+
+  .badge {
+    padding: 4px 6px;
+    font-size: 11px;
+  }
+
+  .drop-area {
+    min-height: 50px;
+    border-radius: 8px;
+    padding: 8px;
+    gap: 4px;
+    margin: 8px 0;
+  }
+
+  .slot {
+    min-width: 30px;
+    min-height: 30px;
+    font-size: 11px;
+    padding: 4px 6px;
+  }
+
+  .wordbank {
+    gap: 4px;
+    padding: 4px 0;
+  }
+
+  .word {
+    padding: 5px 8px;
+    font-size: 11px;
+    border-radius: 8px;
+  }
+
+  .scene-actions {
+    flex-direction: column;
+    gap: 4px;
+    margin-top: 8px;
+  }
+
+  .hint-btn,
+  .clear-btn,
+  .primary {
+    width: 100%;
+    padding: 6px 8px;
+    font-size: 12px;
+  }
+
+  .feedback {
+    font-size: 12px;
+    min-height: 32px;
+  }
+
+  footer {
+    height: 55px;
+    gap: 25px;
+  }
+
+  .footer-icon {
+    font-size: 20px;
+  }
+}

@@ -1,0 +1,623 @@
+/* Import font */
+@import url("https://fonts.googleapis.com/css2?family=Nunito:wght@400;700;800&display=swap");
+
+:root {
+  --bg: #bde6ff;
+  --accent: #164e86;
+  --soft: #d6f1ff;
+  --yellow: #ffe168;
+  --card: #ffffff;
+}
+
+* {
+  box-sizing: border-box;
+}
+html,
+body {
+  height: 100%;
+}
+
+body {
+  margin: 0;
+  font-family: "Nunito", sans-serif;
+  background: var(--bg);
+  color: var(--accent);
+}
+
+/* HEADER */
+header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 22px 28px;
+}
+
+.judul {
+  font-size: 34px;
+  font-weight: 800;
+  margin: 0;
+  text-align: center;
+}
+
+/* Home tombol kotak putih */
+.home-btn {
+  background: #fff;
+  border: 3px solid var(--accent);
+  border-radius: 18px;
+  padding: 8px 14px;
+  font-size: 26px;
+  cursor: pointer;
+}
+
+/* Mulai Belajar */
+.mulai-btn {
+  background: var(--yellow);
+  border: 3px solid var(--accent);
+  border-radius: 22px;
+  padding: 8px 18px;
+  font-weight: 800;
+  cursor: pointer;
+}
+
+.container {
+  padding: 18px 20px 120px;
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+/* GRID */
+.grid {
+  display: grid;
+  grid-template-columns: repeat(8, 1fr);
+  gap: 12px;
+}
+
+@media (max-width: 900px) {
+  .grid {
+    grid-template-columns: repeat(6, 1fr);
+  }
+}
+@media (max-width: 640px) {
+  .grid {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+
+.letter {
+  background: var(--card);
+  border: 4px solid var(--accent);
+  border-radius: 18px;
+  padding: 16px 8px;
+  text-align: center;
+  font-size: 22px;
+  font-weight: 800;
+  cursor: pointer;
+  user-select: none;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: 0.12s;
+  position: relative;
+}
+
+.letter:hover {
+  transform: scale(1.06);
+  background: #e9f1ff;
+}
+
+/* ⭐ Indikator huruf selesai */
+.letter.done::after {
+  content: "⭐";
+  position: absolute;
+  top: 4px;
+  right: 6px;
+  font-size: 18px;
+}
+
+/* LATIHAN */
+.latihan {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  align-items: center;
+}
+
+.preview {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 30px;
+}
+
+.emoji {
+  font-size: 110px;
+  width: 140px;
+  text-align: center;
+}
+
+.word-row {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.word {
+  font-size: 42px;
+  font-weight: 900;
+}
+
+/* tombol suara */
+.icon-btn {
+  background: #fff;
+  border: 3px solid var(--accent);
+  border-radius: 14px;
+  font-size: 26px;
+  padding: 6px 14px;
+  cursor: pointer;
+}
+
+/* canvas */
+.canvas-wrap {
+  width: 100%;
+  max-width: 760px;
+  background: #fff;
+  border-radius: 18px;
+  padding: 14px;
+  border: 3px solid #9fc5ff;
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.08);
+}
+
+#drawCanvas {
+  width: 100%;
+  height: 160px;
+  display: block;
+  border-radius: 10px;
+  touch-action: none;
+}
+
+/* controls */
+.controls {
+  display: flex;
+  gap: 12px;
+  justify-content: center;
+}
+
+.action-btn {
+  background: #fff;
+  border: 2px solid #d2e4ff;
+  padding: 10px 14px;
+  border-radius: 12px;
+  cursor: pointer;
+  font-size: 16px;
+}
+
+.action-btn.primary {
+  background: var(--yellow);
+  border: 3px solid var(--accent);
+  font-weight: 800;
+}
+
+/* FOOTER */
+footer {
+  position: fixed;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: 70px;
+  background: var(--soft);
+  border-top: 4px solid var(--accent);
+  display: flex;
+  gap: 40px;
+  justify-content: center;
+  align-items: center;
+  z-index: 60;
+}
+
+.footer-icon {
+  font-size: 32px;
+  cursor: pointer;
+}
+
+/* Bintang jatuh */
+.bintang {
+  position: fixed;
+  top: -20px;
+  font-size: 24px;
+  animation: jatuh 1.8s linear forwards;
+  pointer-events: none;
+}
+
+@keyframes jatuh {
+  to {
+    transform: translateY(115vh) rotate(360deg);
+    opacity: 0;
+  }
+}
+
+/* ==================== RESPONSIVE TABLET (≤ 768px) ==================== */
+@media (max-width: 768px) {
+  header {
+    padding: 16px 20px;
+    flex-wrap: wrap;
+    gap: 12px;
+  }
+
+  .judul {
+    font-size: 28px;
+    flex: 1 1 100%;
+  }
+
+  .home-btn,
+  .mulai-btn {
+    font-size: 22px;
+    padding: 8px 12px;
+  }
+
+  .container {
+    padding: 14px 16px 120px;
+  }
+
+  .grid {
+    grid-template-columns: repeat(5, 1fr);
+    gap: 10px;
+  }
+
+  .letter {
+    padding: 12px 6px;
+    font-size: 18px;
+    border-radius: 14px;
+  }
+
+  .emoji {
+    font-size: 80px;
+    width: 100px;
+  }
+
+  .word {
+    font-size: 32px;
+  }
+
+  .icon-btn {
+    font-size: 22px;
+    padding: 5px 12px;
+  }
+
+  .canvas-wrap {
+    max-width: 100%;
+    padding: 10px;
+  }
+
+  #drawCanvas {
+    height: 140px;
+  }
+
+  .controls {
+    gap: 8px;
+  }
+
+  .action-btn {
+    padding: 8px 12px;
+    font-size: 14px;
+  }
+
+  footer {
+    height: 65px;
+    gap: 35px;
+  }
+
+  .footer-icon {
+    font-size: 28px;
+  }
+}
+
+/* ==================== RESPONSIVE MOBILE (≤ 640px) ==================== */
+@media (max-width: 640px) {
+  header {
+    padding: 12px 14px;
+    gap: 10px;
+  }
+
+  .judul {
+    font-size: 24px;
+  }
+
+  .home-btn,
+  .mulai-btn {
+    font-size: 18px;
+    padding: 6px 10px;
+    border-radius: 12px;
+  }
+
+  .container {
+    padding: 12px 12px 110px;
+  }
+
+  .grid {
+    grid-template-columns: repeat(4, 1fr);
+    gap: 8px;
+  }
+
+  .letter {
+    padding: 10px 4px;
+    font-size: 16px;
+    border-radius: 12px;
+    border: 3px solid var(--accent);
+  }
+
+  .letter:hover {
+    transform: scale(1.05);
+  }
+
+  .letter.done::after {
+    font-size: 16px;
+    top: 2px;
+    right: 4px;
+  }
+
+  .preview {
+    gap: 20px;
+    flex-wrap: wrap;
+  }
+
+  .emoji {
+    font-size: 70px;
+    width: 80px;
+  }
+
+  .word-row {
+    gap: 8px;
+  }
+
+  .word {
+    font-size: 28px;
+  }
+
+  .icon-btn {
+    font-size: 20px;
+    padding: 5px 10px;
+  }
+
+  .canvas-wrap {
+    max-width: 100%;
+    padding: 8px;
+    border-radius: 14px;
+  }
+
+  #drawCanvas {
+    height: 120px;
+  }
+
+  .controls {
+    flex-direction: column;
+    gap: 6px;
+  }
+
+  .action-btn {
+    width: 100%;
+    padding: 8px 10px;
+    font-size: 13px;
+  }
+
+  footer {
+    height: 60px;
+    gap: 30px;
+  }
+
+  .footer-icon {
+    font-size: 24px;
+  }
+
+  .bintang {
+    font-size: 18px;
+  }
+
+  .reset-dialog {
+    max-width: 280px;
+    padding: 24px 20px;
+  }
+
+  .reset-dialog h3 {
+    font-size: 18px;
+  }
+
+  .reset-dialog p {
+    font-size: 13px;
+  }
+
+  .modal-buttons {
+    flex-direction: column;
+  }
+
+  .modal-buttons button {
+    padding: 8px 16px;
+    width: 100%;
+  }
+}
+
+/* ==================== RESPONSIVE KECIL (≤ 480px) ==================== */
+@media (max-width: 480px) {
+  header {
+    padding: 10px 10px;
+    gap: 8px;
+  }
+
+  .judul {
+    font-size: 20px;
+  }
+
+  .home-btn,
+  .mulai-btn {
+    font-size: 16px;
+    padding: 5px 8px;
+  }
+
+  .container {
+    padding: 10px 10px 100px;
+  }
+
+  .grid {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 6px;
+  }
+
+  .letter {
+    padding: 8px 2px;
+    font-size: 14px;
+    border-radius: 10px;
+  }
+
+  .letter.done::after {
+    font-size: 14px;
+  }
+
+  .preview {
+    flex-direction: column;
+    gap: 12px;
+  }
+
+  .emoji {
+    font-size: 60px;
+    width: 70px;
+  }
+
+  .word-row {
+    gap: 6px;
+  }
+
+  .word {
+    font-size: 24px;
+  }
+
+  .icon-btn {
+    font-size: 18px;
+    padding: 4px 8px;
+  }
+
+  .canvas-wrap {
+    padding: 6px;
+    border-radius: 12px;
+  }
+
+  #drawCanvas {
+    height: 100px;
+  }
+
+  .controls {
+    gap: 4px;
+  }
+
+  .action-btn {
+    padding: 6px 8px;
+    font-size: 12px;
+  }
+
+  footer {
+    height: 55px;
+    gap: 25px;
+  }
+
+  .footer-icon {
+    font-size: 20px;
+  }
+}
+
+/* RESET MODAL */
+.reset-modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+  animation: fadeIn 0.2s ease-in;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+.reset-dialog {
+  background: #fff;
+  border-radius: 24px;
+  padding: 32px 28px;
+  max-width: 320px;
+  text-align: center;
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.2);
+  animation: slideUp 0.3s ease-out;
+}
+
+@keyframes slideUp {
+  from {
+    transform: translateY(40px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+.reset-dialog h3 {
+  margin: 0 0 12px 0;
+  font-size: 22px;
+  color: var(--accent);
+}
+
+.reset-dialog p {
+  margin: 0 0 24px 0;
+  font-size: 14px;
+  color: #666;
+}
+
+.modal-buttons {
+  display: flex;
+  gap: 12px;
+  justify-content: center;
+}
+
+.modal-buttons button {
+  padding: 10px 20px;
+  border: 2px solid var(--accent);
+  border-radius: 12px;
+  font-size: 14px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  font-family: "Nunito", sans-serif;
+}
+
+.btn-cancel {
+  background: #fff;
+  color: var(--accent);
+}
+
+.btn-cancel:hover {
+  background: var(--soft);
+  transform: translateY(-2px);
+}
+
+.btn-confirm {
+  background: #ff6b6b;
+  color: #fff;
+  border-color: #ff6b6b;
+}
+
+.btn-confirm:hover {
+  background: #ff5252;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(255, 107, 107, 0.3);
+}
+
+#resetBtn {
+  font-size: 30px;
+  cursor: pointer;
+  filter: drop-shadow(0 0 2px rgba(0,0,0,0.15));
+}
+#resetBtn:hover {
+  transform: scale(1.15);
+}

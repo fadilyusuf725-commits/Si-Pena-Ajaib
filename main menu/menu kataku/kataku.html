@@ -1,0 +1,57 @@
+<html lang="id">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>Kataku</title>
+<link rel="stylesheet" href="kataku.css">
+</head>
+<body>
+
+<header>
+  <button id="homeBtn" class="home-btn" title="Home">🏠</button>
+  <h1 class="judul">Kataku</h1>
+  <button id="mulaiBtn" class="mulai-btn">Mulai Belajar</button>
+</header>
+
+<main class="container">
+  <!-- GRID HURUF -->
+  <section class="grid-wrap">
+    <div id="grid" class="grid"></div>
+  </section>
+
+  <!-- AREA LATIHAN -->
+  <section class="latihan">
+    <div class="preview">
+      <div id="emoji" class="emoji">🍎</div>
+
+      <div class="word-row">
+        <div id="word" class="word">Apel</div>
+        <button id="speakBtn" class="icon-btn" title="Ucapkan">🔊</button>
+      </div>
+    </div>
+
+    <div class="canvas-wrap">
+      <canvas id="drawCanvas" width="760" height="160"></canvas>
+    </div>
+
+    <div class="controls">
+      <button id="hintBtn" class="action-btn">📝 Petunjuk</button>
+      <button id="clearBtn" class="action-btn">🧽 Hapus</button>
+      <button id="nextBtn" class="action-btn primary">➡ Kata Berikutnya</button>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div id="starBtn" class="footer-icon" title="Bintang">⭐</div>
+  <div id="audioBtn" class="footer-icon" title="Musik">🎵</div>
+  <div id="resetBtn" class="footer-icon" title="Reset">🗑️</div>
+</footer>
+
+<audio id="bgm" loop preload="auto">
+  <source src="https://cdn.pixabay.com/download/audio/2025/03/30/audio_3d2ec07913.mp3?filename=spring-in-my-step-copyright-free-music-for-youtube-320726.mp3">
+</audio>
+
+<script src="kataku.js"></script>
+</body>
+</html>

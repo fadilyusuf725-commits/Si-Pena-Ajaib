@@ -1,0 +1,58 @@
+<html lang="id">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Ceritaku</title>
+  <link rel="stylesheet" href="menu ceritaku.css">
+  <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;700;800&display=swap" rel="stylesheet">
+</head>
+<body>
+  <header>
+    <button id="homeBtn" class="home-btn" title="Home">🏠</button>
+    <h1 class="judul">Ceritaku</h1>
+    <button id="startBtn" class="mulai-btn">Mulai Cerita</button>
+  </header>
+
+  <main class="container">
+    <section class="controls-row">
+      <label for="storySelect">Pilih Cerita:</label>
+      <select id="storySelect"></select>
+    </section>
+
+    <section id="sceneArea" class="scene-area hidden" aria-live="polite">
+      <div class="scene-card">
+        <div class="scene-image-wrap">
+          <img id="sceneImg" src="" alt="Scene gambar">
+          <div id="sceneIndexBadge" class="badge"></div>
+        </div>
+
+        <div class="drop-area" id="dropArea" aria-label="Susun kalimat di sini">
+          <!-- slots inserted by JS -->
+        </div>
+
+        <div class="wordbank" id="wordBank" aria-label="Kata-kata acak (seret ke atas)"></div>
+
+        <div class="scene-actions">
+          <button id="hintBtn" class="hint-btn">📝 Petunjuk</button>
+          <button id="clearBtn" class="clear-btn">🧽 Hapus Susunan</button>
+          <button id="nextBtn" class="primary hidden">Lanjut</button>
+        </div>
+
+        <div id="feedback" class="feedback" role="status"></div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div id="starBtn" class="footer-icon" title="Bintang">⭐</div>
+    <div id="musicFooter" class="footer-icon" title="Musik">🎵</div>
+    <div id="homeFooter" class="footer-icon" title="Home">🏠</div>
+  </footer>
+
+  <audio id="bgm" loop preload="auto">
+    <source src="https://cdn.pixabay.com/download/audio/2025/03/30/audio_3d2ec07913.mp3?filename=spring-in-my-step-copyright-free-music-for-youtube-320726.mp3">
+  </audio>
+
+  <script src="menu ceritaku.js"></script>
+</body>
+</html>

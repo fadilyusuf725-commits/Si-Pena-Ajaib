@@ -1,0 +1,59 @@
+<html lang="id">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Huruf Q — Si Pena Ajaib</title>
+  <link rel="stylesheet" href="q.css"/>
+</head>
+<body>
+  <header class="topbar">
+    <div class="nav-left">
+      <button class="nav-btn" id="homeBtn" title="Home">🏠</button>
+      <button class="nav-btn" id="backBtn" title="Kembali ke Huruf P">◀</button>
+      <div class="label">Huruf Q</div>
+    </div>
+    <div class="nav-right">
+      <button class="icon-btn" id="pronounceBtn" title="Bunyi huruf">🔊</button>
+      <button class="icon-btn" id="nextBtn" title="Selanjutnya  Huruf R">➡</button>
+    </div>
+  </header>
+
+  <main class="page container">
+    <section class="hero">
+      
+
+      <div class="content-card">
+        <div class="letter-header">
+          <div class="big-letter">Q</div>
+          <div class="small-letter">q</div>
+        </div>
+
+        <div class="canvas-controls">
+          <div class="hint">Ikuti bentuk huruf.<br>Tekan Petunjuk untuk melihat panah & garis bantu.</div>
+          <div class="buttons">
+            <button id="toggleGuide" class="btn">Petunjuk</button>
+            <button id="clearBtn" class="btn btn-soft">Hapus Coretan</button>
+          </div>
+        </div>
+
+        <div class="canvas-wrap" id="canvasWrap" aria-hidden="false">
+          <canvas id="templateCanvas" width="1100" height="520" aria-label="Template huruf"></canvas>
+          <canvas id="drawCanvas" width="1100" height="520" aria-label="Area menggambar"></canvas>
+        </div>
+
+        <div id="traceFeedback" class="feedback">Ikuti bentuk huruf.<br>Tekan Petunjuk untuk melihat panah & garis bantu.</div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="footer-icon" id="starBtn" title="Bintang">⭐</div>
+    <div class="footer-icon" id="musicBtn" title="Musik">🎵</div>
+    <div class="footer-icon" id="homeFooter" title="Home">🏠</div>
+  </footer>
+
+  <script src="q.js"></script>
+</body>
+</html>
+
+

@@ -1,0 +1,55 @@
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Si Pena Ajaib</title>
+  <link rel="stylesheet" href="main menu.css">
+</head>
+<body>
+
+  <header>
+    <h1 class="judul">Si Pena Ajaib</h1>
+    <button class="btn-start">Mulai Belajar</button>
+  </header>
+
+ <main class="container">
+
+    <!-- Karakter Pena -->
+  <!-- Karakter Pena -->
+    <img src="pena.png" class="pena" alt="Karakter Pena">
+   
+    <!-- Balon Dialog -->
+    <div class="speech">
+      Hi! <br>
+      Ayo belajar menulis!
+    </div>
+
+    <!-- Menu Pilihan -->
+    <div class="menu-wrapper">
+      <div class="menu-item" onclick="bukaMenu('huruf')">
+        <div class="icon">A</div>
+        <p>Hurufku</p>
+      </div>
+
+      <div class="menu-item" onclick="bukaMenu('kata')">
+        <div class="icon">🍎</div>
+        <p>Kataku</p>
+      </div>
+
+      <div class="menu-item" onclick="bukaMenu('cerita')">
+        <div class="icon">📖</div>
+        <p>Ceritaku</p>
+      </div>
+    </div>
+
+</main>
+
+<footer>
+    <div class="footer-icon" onclick="jatuhkanBintang()">⭐</div>
+    <div class="footer-icon" onclick="toggleAudio()">🎵</div>
+</footer>
+
+<script src="main menu.js"></script>
+</body>
+</html>
+
