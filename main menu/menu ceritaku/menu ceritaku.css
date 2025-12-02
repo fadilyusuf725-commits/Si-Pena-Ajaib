@@ -150,6 +150,15 @@ select {
   align-items: center;
   justify-content: center;
   font-weight: 800;
+  transition: all 0.2s ease;
+  position: relative;
+}
+
+.slot.drag-over {
+  border-color: #164E86;
+  background: #e7f7ff;
+  border-style: solid;
+  transform: scale(1.05);
 }
 
 .slot.filled {
@@ -171,10 +180,22 @@ select {
   border-radius: 12px;
   cursor: grab;
   font-weight: 800;
+  user-select: none;
+  transition: all 0.2s ease;
+  min-height: 36px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.word:active {
+  cursor: grabbing;
 }
 
 .word.dragging {
-  opacity: 0.5;
+  opacity: 0.6;
+  transform: scale(0.95);
+  box-shadow: 0 4px 12px rgba(22, 78, 134, 0.3);
 }
 
 .scene-actions {
@@ -408,20 +429,22 @@ footer {
   }
 
   .slot {
-    min-width: 35px;
-    min-height: 35px;
-    font-size: 12px;
+    min-width: 45px;
+    min-height: 45px;
+    font-size: 13px;
+    padding: 8px 10px;
   }
 
   .wordbank {
-    gap: 6px;
-    padding: 6px 0;
+    gap: 8px;
+    padding: 8px 0;
   }
 
   .word {
-    padding: 6px 10px;
-    font-size: 12px;
+    padding: 10px 12px;
+    font-size: 14px;
     border-radius: 10px;
+    min-height: 40px;
   }
 
   .scene-actions {
@@ -506,29 +529,30 @@ footer {
   }
 
   .drop-area {
-    min-height: 50px;
+    min-height: 70px;
     border-radius: 8px;
-    padding: 8px;
-    gap: 4px;
+    padding: 10px;
+    gap: 6px;
     margin: 8px 0;
   }
 
   .slot {
-    min-width: 30px;
-    min-height: 30px;
-    font-size: 11px;
-    padding: 4px 6px;
+    min-width: 40px;
+    min-height: 40px;
+    font-size: 12px;
+    padding: 6px 8px;
   }
 
   .wordbank {
-    gap: 4px;
-    padding: 4px 0;
+    gap: 6px;
+    padding: 6px 0;
   }
 
   .word {
-    padding: 5px 8px;
-    font-size: 11px;
+    padding: 8px 10px;
+    font-size: 12px;
     border-radius: 8px;
+    min-height: 36px;
   }
 
   .scene-actions {

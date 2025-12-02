@@ -167,19 +167,78 @@ function renderWordBank(words) {
     el.dataset.word = w;
     el.addEventListener('dragstart', onDragStart);
     el.addEventListener('dragend', onDragEnd);
+    el.addEventListener('touchstart', onTouchStart, {passive: true});
+    el.addEventListener('touchmove', onTouchMove, {passive: false});
+    el.addEventListener('touchend', onTouchEnd, {passive: true});
     wordBankEl.appendChild(el);
   });
 }
 
-/* ---------- drag/drop ---------- */
+/* ---------- drag/drop & touch support ---------- */
+let draggedElement = null;
+let touchStartElement = null;
+
 function onDragStart(e){
+  draggedElement = e.target;
   e.dataTransfer.setData('text/plain', e.target.dataset.word);
   e.dataTransfer.effectAllowed = 'move';
   e.target.classList.add('dragging');
 }
 function onDragEnd(e){
   e.target.classList.remove('dragging');
+  draggedElement = null;
 }
+
+// Touch support for mobile
+function onTouchStart(e){
+  touchStartElement = e.target.closest('.word');
+  if (touchStartElement) {
+    touchStartElement.classList.add('dragging');
+  }
+}
+
+function onTouchMove(e){
+  if (!touchStartElement) return;
+  e.preventDefault();
+  const touch = e.touches[0];
+  const el = document.elementFromPoint(touch.clientX, touch.clientY);
+  
+  if (el && el.classList.contains('slot')) {
+    el.classList.add('drag-over');
+  }
+  
+  document.querySelectorAll('.slot.drag-over').forEach(s => {
+    if (s !== el) s.classList.remove('drag-over');
+  });
+}
+
+function onTouchEnd(e){
+  if (!touchStartElement) return;
+  
+  const touch = e.changedTouches[0];
+  const targetEl = document.elementFromPoint(touch.clientX, touch.clientY);
+  
+  if (targetEl && targetEl.classList.contains('slot')) {
+    const slot = targetEl;
+    if (slot.firstChild){
+      wordBankEl.appendChild(slot.firstChild);
+    }
+    slot.appendChild(touchStartElement);
+    slot.classList.add('filled');
+    checkAssembly();
+  } else if (targetEl && targetEl.closest('#wordBank')) {
+    if (touchStartElement.parentElement.classList.contains('slot')) {
+      touchStartElement.parentElement.classList.remove('filled');
+    }
+    wordBankEl.appendChild(touchStartElement);
+    checkAssembly();
+  }
+  
+  touchStartElement.classList.remove('dragging');
+  document.querySelectorAll('.slot.drag-over').forEach(s => s.classList.remove('drag-over'));
+  touchStartElement = null;
+}
+
 function onDropToSlot(e){
   e.preventDefault();
   const slot = e.currentTarget;
